@@ -1,0 +1,459 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+ /* Estilos generales del navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1a1a1a; /* Color de fondo del navbar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo con transparencia */
+    color: #fff;
+    z-index: 1000; /* Asegura que esté encima del resto del contenido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    }
+    
+    /* Añadir margen superior al contenido para evitar que la navbar lo cubra */
+    body {
+      padding-top: 60px; /* Ajusta este valor al alto de la navbar */
+    }
+    
+  
+  .logo {
+    flex-grow: 1; /* Ocupa todo el espacio posible a la izquierda */  }
+  
+  .logo-img {
+    height: 40px; /* Ajusta la altura del logo */
+    width: auto;
+  }
+  
+  .nav-links {
+    list-style: none; /* Elimina los puntos de la lista */
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin-left: 20px;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navbar-nav .nav-link {
+    color: white;
+    font-size: 20px;
+    font-weight: medium;
+    margin-left: 20px;
+
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #40a3ff;
+  }  
+  
+  /* Estilo general del hero con imagen de fondo */
+.hero {
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding-left: 5%;
+  background-image: url('Img/BG\ pagina.jpg'); /* Cambia esto por la ruta de tu imagen */
+  background-size: cover; /* Escala la imagen para cubrir todo el área */
+  background-position: center; /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  color: #fff;
+  text-align: left;
+}
+
+/* Pseudo-elemento para el fondo oscuro */
+.hero::before {
+  content: ""; /* Necesario para generar el pseudo-elemento */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con opacidad */
+  z-index: 1; /* Coloca el fondo oscuro detrás del contenido */
+  width: 100%; /* Asegura que el pseudo-elemento cubra toda el área */
+  height: 100%; /* Asegura que cubra toda la altura del hero */
+}
+
+/* Estilo del contenido del hero */
+.hero-content {
+  position: relative; /* Asegura que el contenido quede encima del pseudo-elemento */
+  z-index: 2; /* Asegura que el contenido se muestre encima del fondo oscuro */
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+/* Estilo del botón CTA */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #40a3ff;
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #75bcff;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 767px) {
+  .hero {
+    padding-left: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+  }
+}
+/* Estilos para la sección About Me */
+.about-me {
+  min-height: 60vh; /* Ajusta el tamaño de la sección */
+  color: #fafafa;
+  background-color: #1a1a1a; /* Color de fondo claro */
+  display: flex;
+  align-items: center;
+
+}
+
+.about-me .about-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #fafafa;
+  opacity: 0; /* Inicialmente oculto para la animación */
+  transform: translateY(100%); /* Comienza fuera de la pantalla por la izquierda */
+  transition: all 0.6s ease-in-out; /* Efecto de transición para el slide in */
+}
+
+/* Estado activo para el slide-in */
+.about-me.active .about-text {
+  opacity: 1;
+  transform: translateX(0); /* Se desliza dentro de la pantalla */
+}
+/* Sección del portfolio */
+.portfolio {
+  min-height: 60vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.portfolio-row {
+  display: flex;
+  justify-content: space-between; /* Distribuye las imágenes con espacio entre ellas */
+}
+
+.portfolio-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para las imágenes */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto suave */
+}
+
+/* Efecto hover para aumentar tamaño y resaltar imagen */
+.portfolio-img:hover {
+  transform: scale(1.05); /* Aumenta ligeramente la imagen al hacer hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al hacer hover */
+}
+
+@media (max-width: 768px) {
+  .portfolio-images {
+    height: 300px; /* Reduce la altura en pantallas pequeñas */
+  }
+
+  .portfolio-img.img1,
+  .portfolio-img.img2,
+  .portfolio-img.img3 {
+    width: 40%;
+    top: auto;
+    left: auto;
+    position: static; /* Coloca las imágenes en una columna */
+    margin-bottom: 20px;
+  }
+}
+/* Sección "My Recent Projects" */
+.recent-projects {
+  padding: 50px 0;
+  background-color: #1a1a1a;
+  color: #fafafa;
+}
+
+.project-item {
+  text-align: center;
+}
+
+.project-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en las imágenes */
+.project-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el título del proyecto */
+.project-title {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  color: #fafafa;
+  font-weight: medium;
+}
+
+/* Estilos para el subtítulo o descripción */
+.project-subtitle {
+  font-size: 1rem;
+  color: #f0f0f0;
+  margin-top: 5px;
+}
+/* Elimina el color azul y el subrayado */
+.seemorelink {
+  color: #969696; /* Hereda el color del elemento padre */
+  text-decoration:underline; /* Elimina el subrayado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Opcional: Cambiar el estilo al pasar el cursor */
+.seemorelink:hover {
+  color: #fafafa; /* Cambia a un color destacado al pasar el cursor */
+  }
+
+/* Estilo de la sección More Info */
+.more-info {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.more-info-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilo de la galería */
+.info-gallery {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna en dispositivos móviles */
+  gap: 30px; /* Espacio entre los elementos */
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilo de la sección More Info */
+.more-info {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.more-info-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: normal;
+  color: #333;
+}
+
+/* Estilo de la galería */
+.info-gallery {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna en dispositivos móviles */
+  gap: 60px; /* Aumenta el espacio entre los elementos */
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px; /* Espacio adicional debajo de cada imagen */
+}
+
+/* Estilo de las imágenes */
+.info-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Estilo del subtítulo */
+.info-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Distribución en pantallas grandes */
+@media (min-width: 768px) {
+  .info-gallery {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en pantallas grandes */
+    gap: 60px; /* Espacio adicional entre columnas en pantallas grandes */
+  }
+
+  .more-info-title {
+    font-size: 2rem;
+  }
+}
+
+/* Efecto hover para las imágenes */
+.info-img:hover {
+  transform: scale(1.05);
+}
+/* Configuración inicial para las imágenes ocultas (antes de la animación) */
+.more-info .info-img {
+  opacity: 0;
+  transform: translateY(50px); /* Desplazamiento inicial hacia abajo */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Clase que activará la animación */
+.more-info .info-img.animate {
+  opacity: 1;
+  transform: translateY(0); /* Imagen en posición final */
+}
+/* Sección "Let's Work Together" */
+.work-together {
+  background-color: #1a1a1a; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  padding: 80px 0; /* Espaciado vertical */
+  text-align: center;
+  
+}
+
+.work-together-text {
+  font-size: 2.5rem; /* Ajusta el tamaño del texto para móvil */
+  font-weight: bold;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .work-together-text {
+    font-size: 6rem; /* Tamaño más grande en pantallas mayores */
+  }
+}
+/* Estilo del footer */
+.footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer-text {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 15px; /* Espacio entre íconos */
+  margin-top: 10px;
+  align-items: center;
+}
+
+.footer-social-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-social-link:hover {
+  color: #aaa;
+}
+
+@media (min-width: 768px) {
+  .footer-socials {
+    margin-top: 0; /* Quita el margen en pantallas grandes */
+  }
+}
+
+ /* Estilo general para la sección de proyectos */
+.projects-section {
+  padding: 50px 20px;
+  background-color: #1a1a1a; /* Fondo oscuro */
+}
+
+/* Título principal */
+.projects-title {
+  font-size: 6rem;
+  margin-top: 60px;
+  color: #fafafa;
+  text-align: left;
+  opacity: 0; /* Inicialmente invisible para animación */
+  transform: translateX(50px); /* Posición inicial para la animación */
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+/* Subtítulo */
+.projects-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #cecece;
+  text-align: left;
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 767px) {
+  .projects-title,
+  .projects-subtitle {
+    text-align: center;
+  }
+}
